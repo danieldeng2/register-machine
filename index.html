@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css">
+  <title>RM</title>
+</head>
+<body>
+    <p>
+      2^
+      <input type="number" id="progTwoPower" value="0">
+      *
+      (<input type="number" id="progEncoded"/>)
+      <button onclick="decodeRM('#progTwoPower', '#progEncoded')">Decode Program</button>
+    </p>
+
+    <p>
+      <input type="number" id="lineEncoded"/>
+      <button onclick="decodeLine('#lineEncoded')">Decode Line</button>
+    </p>
+    <textarea cols="80" rows="22" id="progIn">
+Init R1 3
+Init R2 4
+
+L0: R1- -> L1,L2
+L1: R0+ -> L0
+L2: R2- -> L3, L4
+L3: R0+ -> L2
+L4: Halt
+    </textarea>
+    <p>
+     <button onclick="run_rm(this)">Run</button>
+     <button onclick="plot_rm(this, '600px')">Plot</button>
+     <button onclick="encode_rm(this)">Encode</button>
+    </p>
+    <blockquote id="output"> <p> </p> </blockquote>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+    <script src="register-machine.js"></script>
+</body>
+</html>
